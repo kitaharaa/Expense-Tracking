@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.kitahara.expensetracking.presentation.home.HomeScreen
-import com.kitahara.expensetracking.presentation.transaction.TransactionScreen
+import com.kitahara.expensetracking.presentation.transaction.TransactionAddingScreen
 import com.kitahara.expensetracking.presentation.ui.theme.ExpenseTrackingTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,11 +23,17 @@ class MainActivity : ComponentActivity() {
 
                 NavHost(navController, AppNavigation.Home.destination) {
                     composable(AppNavigation.Home.destination) {
-                        HomeScreen()
+                        HomeScreen {
+                            navController.navigate(
+                                AppNavigation.TransactionAdding.destination
+                            )
+                        }
                     }
 
-                    composable(AppNavigation.TransactionCreation.destination) {
-                        TransactionScreen()
+                    composable(AppNavigation.TransactionAdding.destination) {
+                        TransactionAddingScreen {
+                            navController.popBackStack()
+                        }
                     }
                 }
             }

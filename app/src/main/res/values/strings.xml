@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Expense Tracking</string>
+    <string name="enter_bitcoin_count">Enter bitcoin count</string>
+    <string name="amount">Amount</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="balance">Balance</string>
+    <string name="add_bitcoin">Add bitcoin</string>
+    <string name="add_transaction">Add transaction</string>
 </resources>
