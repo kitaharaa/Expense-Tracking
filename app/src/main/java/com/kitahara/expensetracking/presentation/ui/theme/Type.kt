@@ -1,4 +1,4 @@
-package com.kitahara.expensetracking.ui.theme
+package com.kitahara.expensetracking.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
