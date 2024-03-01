@@ -5,10 +5,7 @@ import com.kitahara.expensetracking.data.local.database.dao.BitcoinRateDao
 import com.kitahara.expensetracking.data.local.entity.BitcoinRateEntity
 import com.kitahara.expensetracking.data.request.BitcoinDataSource
 import com.kitahara.expensetracking.domain.repo.BitcoinRateSource
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -20,11 +17,10 @@ class BitcoinRateSourceImpl @Inject constructor(
     private val bitcoinDataSource: BitcoinDataSource
 ) : BitcoinRateSource {
 
-    init {
-        CoroutineScope(Dispatchers.IO).launch {
+    override suspend fun updateBitcoinRate() {
             try {
                 val hours = getLastUpdateTimeInHours(rateDao.getLastUpdateTime())
-                if (hours < 1) return@launch
+                if (hours < 1) return
 
                 val bitcoinInfo = bitcoinDataSource.getBitcoinInfo()
                 val bitcoinUpdateTime = bitcoinInfo?.time?.updatedISO
@@ -42,7 +38,6 @@ class BitcoinRateSourceImpl @Inject constructor(
             } catch (e: Exception) {
                 Log.e("BitcoinRateSourceImpl", e.message.toString())
             }
-        }
     }
 
     override fun getBitcoinToUsdRateFlow(): Flow<Float> = rateDao.getBitcoinToUsdRateFlow()

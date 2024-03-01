@@ -54,7 +54,9 @@ fun BitcoinBalanceCard(
                     .weight(3.5f),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Column(modifier = Modifier.weight(2f)) {
+                Column(modifier = Modifier
+                    .weight(2f)
+                    .padding(start = 12.dp)) {
                     Text(
                         text = stringResource(R.string.balance),
                         style = MaterialTheme.typography.titleLarge
