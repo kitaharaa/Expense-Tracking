@@ -34,7 +34,7 @@ class HomeViewModel @Inject constructor(
                 transactionType = TransactionType.Replenishment,
                 amount = it,
                 category = "replenishment",
-                showToast= showToast
+                showToast = showToast
             )
         }
     }

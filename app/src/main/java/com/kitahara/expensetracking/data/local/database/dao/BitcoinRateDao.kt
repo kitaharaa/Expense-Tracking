@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
 import com.kitahara.expensetracking.data.local.entity.BitcoinRateEntity
-import java.util.Date
 import kotlinx.coroutines.flow.Flow
+import java.util.Date
 
 @Dao
 interface BitcoinRateDao {

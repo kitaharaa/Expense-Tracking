@@ -4,12 +4,12 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.kitahara.expensetracking.data.local.database.converter.DateConverter
-import com.kitahara.expensetracking.data.local.database.dao.UserBalanceDao
 import com.kitahara.expensetracking.data.local.database.dao.BitcoinRateDao
 import com.kitahara.expensetracking.data.local.database.dao.TransactionDao
-import com.kitahara.expensetracking.data.local.entity.UserBalanceEntity
+import com.kitahara.expensetracking.data.local.database.dao.UserBalanceDao
 import com.kitahara.expensetracking.data.local.entity.BitcoinRateEntity
 import com.kitahara.expensetracking.data.local.entity.TransactionEntity
+import com.kitahara.expensetracking.data.local.entity.UserBalanceEntity
 
 @Database(
     entities = [UserBalanceEntity::class, BitcoinRateEntity::class, TransactionEntity::class],

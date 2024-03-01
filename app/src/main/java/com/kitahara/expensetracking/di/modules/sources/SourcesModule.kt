@@ -5,8 +5,8 @@ import com.kitahara.expensetracking.domain.repo.BitcoinRateSource
 import com.kitahara.expensetracking.domain.repo.MyPagingData
 import com.kitahara.expensetracking.domain.repo.TransactionSource
 import com.kitahara.expensetracking.domain.sources.BalanceSourceImpl
-import com.kitahara.expensetracking.domain.sources.MyPagingDataImpl
 import com.kitahara.expensetracking.domain.sources.BitcoinRateSourceImpl
+import com.kitahara.expensetracking.domain.sources.MyPagingDataImpl
 import com.kitahara.expensetracking.domain.sources.TransactionSourceImpl
 import dagger.Binds
 import dagger.Module

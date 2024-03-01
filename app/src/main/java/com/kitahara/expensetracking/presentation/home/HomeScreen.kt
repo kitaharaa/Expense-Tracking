@@ -90,7 +90,7 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(5.dp),
             contentPadding = PaddingValues(15.dp)
         ) {
-            homeContent(bitcoinAmount,transactionPagingItem, navigateTransactionScreen) {
+            homeContent(bitcoinAmount, transactionPagingItem, navigateTransactionScreen) {
                 shouldShowDialog = true
             }
         }

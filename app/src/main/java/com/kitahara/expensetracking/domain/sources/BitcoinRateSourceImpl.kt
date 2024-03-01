@@ -18,26 +18,26 @@ class BitcoinRateSourceImpl @Inject constructor(
 ) : BitcoinRateSource {
 
     override suspend fun updateBitcoinRate() {
-            try {
-                val hours = getLastUpdateTimeInHours(rateDao.getLastUpdateTime())
-                if (hours < 1) return
+        try {
+            val hours = getLastUpdateTimeInHours(rateDao.getLastUpdateTime())
+            if (hours < 1) return
 
-                val bitcoinInfo = bitcoinDataSource.getBitcoinInfo()
-                val bitcoinUpdateTime = bitcoinInfo?.time?.updatedISO
-                val bitcoinUsdRate = bitcoinInfo?.bpi?.uSD?.rateFloat
+            val bitcoinInfo = bitcoinDataSource.getBitcoinInfo()
+            val bitcoinUpdateTime = bitcoinInfo?.time?.updatedISO
+            val bitcoinUsdRate = bitcoinInfo?.bpi?.uSD?.rateFloat
 
-                val date = bitcoinUpdateTime.convertToDate()
+            val date = bitcoinUpdateTime.convertToDate()
 
-                if (date != null && bitcoinUsdRate != null)
-                    rateDao.upsert(
-                        BitcoinRateEntity(
-                            lastCourseUpdate = date,
-                            usdRate = bitcoinUsdRate
-                        )
+            if (date != null && bitcoinUsdRate != null)
+                rateDao.upsert(
+                    BitcoinRateEntity(
+                        lastCourseUpdate = date,
+                        usdRate = bitcoinUsdRate
                     )
-            } catch (e: Exception) {
-                Log.e("BitcoinRateSourceImpl", e.message.toString())
-            }
+                )
+        } catch (e: Exception) {
+            Log.e("BitcoinRateSourceImpl", e.message.toString())
+        }
     }
 
     override fun getBitcoinToUsdRateFlow(): Flow<Float> = rateDao.getBitcoinToUsdRateFlow()
