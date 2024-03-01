@@ -1,4 +1,4 @@
-package com.kitahara.expensetracking.domain.paging
+package com.kitahara.expensetracking.domain.sources
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -6,8 +6,8 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.kitahara.expensetracking.data.local.database.dao.TransactionDao
 import com.kitahara.expensetracking.data.local.entity.TransactionEntity
-import com.kitahara.expensetracking.domain.MyPagingData
-import com.kitahara.expensetracking.domain.paging.entity.TransactionData
+import com.kitahara.expensetracking.domain.repo.MyPagingData
+import com.kitahara.expensetracking.domain.entity.TransactionData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.text.SimpleDateFormat

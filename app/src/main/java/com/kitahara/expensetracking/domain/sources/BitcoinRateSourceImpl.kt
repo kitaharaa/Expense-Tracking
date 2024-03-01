@@ -1,10 +1,10 @@
-package com.kitahara.expensetracking.domain.rate
+package com.kitahara.expensetracking.domain.sources
 
 import android.util.Log
 import com.kitahara.expensetracking.data.local.database.dao.BitcoinRateDao
 import com.kitahara.expensetracking.data.local.entity.BitcoinRateEntity
 import com.kitahara.expensetracking.data.request.BitcoinDataSource
-import com.kitahara.expensetracking.domain.BitcoinRateSource
+import com.kitahara.expensetracking.domain.repo.BitcoinRateSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

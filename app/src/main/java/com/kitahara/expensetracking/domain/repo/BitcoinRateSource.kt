@@ -1,4 +1,4 @@
-package com.kitahara.expensetracking.domain
+package com.kitahara.expensetracking.domain.repo
 
 import kotlinx.coroutines.flow.Flow
 

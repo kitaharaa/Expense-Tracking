@@ -3,6 +3,7 @@
 package com.kitahara.expensetracking.presentation.home
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,9 +22,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -37,6 +40,7 @@ import com.kitahara.expensetracking.R
 import com.kitahara.expensetracking.presentation.home.components.BitcoinAddingDialog
 import com.kitahara.expensetracking.presentation.home.components.BitcoinBalanceCard
 import com.kitahara.expensetracking.presentation.home.components.TransactionItem
+import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
@@ -46,9 +50,10 @@ fun HomeScreen(
     val viewModel: HomeViewModel = hiltViewModel()
 
     val transactionPagingItem = viewModel.getPagedTransactions().collectAsLazyPagingItems()
+    val coroutineScope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     val bitcoinAmount by viewModel.provideBitcoinFlow().collectAsState(initial = 0f)
-
     val bitcoinRate by viewModel.provideBitcoinRateFlow().collectAsState(initial = 0f)
 
     var shouldShowDialog by remember {
@@ -142,8 +147,12 @@ fun HomeScreen(
                 shouldShowDialog = false
             },
             onConfirm = {
-                Log.e("Confirmation", "$it")
-                viewModel.addBitcoin(it)
+                Log.e("Confirmation", it)
+                viewModel.addBitcoin(it) { message ->
+                    coroutineScope.launch {
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                    }
+                }
 
                 shouldShowDialog = false
             },

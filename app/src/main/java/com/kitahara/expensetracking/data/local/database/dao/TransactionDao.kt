@@ -12,6 +12,6 @@ interface TransactionDao {
     @Upsert
     fun addTransaction(vararg transactionEntity: TransactionEntity)
 
-    @Query("SELECT * from transaction_table t ORDER BY t.operation_date")
+    @Query("SELECT * from transaction_table t ORDER BY t.operation_date DESC")
     fun getAllDataPaged(): PagingSource<Int, TransactionEntity>
 }

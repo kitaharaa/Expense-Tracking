@@ -1,11 +1,13 @@
 package com.kitahara.expensetracking.di.modules.sources
 
-import com.kitahara.expensetracking.domain.BalanceSource
-import com.kitahara.expensetracking.domain.BitcoinRateSource
-import com.kitahara.expensetracking.domain.MyPagingData
-import com.kitahara.expensetracking.domain.balance.BalanceSourceImpl
-import com.kitahara.expensetracking.domain.paging.MyPagingDataImpl
-import com.kitahara.expensetracking.domain.rate.BitcoinRateSourceImpl
+import com.kitahara.expensetracking.domain.repo.BalanceSource
+import com.kitahara.expensetracking.domain.repo.BitcoinRateSource
+import com.kitahara.expensetracking.domain.repo.MyPagingData
+import com.kitahara.expensetracking.domain.repo.TransactionSource
+import com.kitahara.expensetracking.domain.sources.BalanceSourceImpl
+import com.kitahara.expensetracking.domain.sources.MyPagingDataImpl
+import com.kitahara.expensetracking.domain.sources.BitcoinRateSourceImpl
+import com.kitahara.expensetracking.domain.sources.TransactionSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -22,4 +24,7 @@ abstract class SourcesModule {
 
     @Binds
     abstract fun bindBitcoinRateSource(impl: BitcoinRateSourceImpl): BitcoinRateSource
+
+    @Binds
+    abstract fun bindTransactionSource(impl: TransactionSourceImpl): TransactionSource
 }

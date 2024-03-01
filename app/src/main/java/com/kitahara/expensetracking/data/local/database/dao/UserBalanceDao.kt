@@ -15,6 +15,9 @@ interface UserBalanceDao {
     @Query("SELECT b.bitcoin_amount FROM bitcoin_balance_table b WHERE id = 0")
     fun getBitcoinAmountFlow(): Flow<Float>
 
+    @Query("UPDATE bitcoin_balance_table SET bitcoin_amount = (bitcoin_amount - :sum) WHERE id = 0")
+    fun minusBitcoinAmount(sum: Float)
+
     @Query("SELECT b.bitcoin_amount FROM bitcoin_balance_table b WHERE id = 0")
     fun getBitcoinAmount(): Float
 

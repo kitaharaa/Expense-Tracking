@@ -1,7 +1,7 @@
-package com.kitahara.expensetracking.domain
+package com.kitahara.expensetracking.domain.repo
 
 import androidx.paging.PagingData
-import com.kitahara.expensetracking.domain.paging.entity.TransactionData
+import com.kitahara.expensetracking.domain.entity.TransactionData
 import kotlinx.coroutines.flow.Flow
 
 interface MyPagingData {

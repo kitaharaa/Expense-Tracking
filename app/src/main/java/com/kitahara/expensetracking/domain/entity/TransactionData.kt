@@ -1,4 +1,4 @@
-package com.kitahara.expensetracking.domain.paging.entity
+package com.kitahara.expensetracking.domain.entity
 
 data class TransactionData(
     val id: Int,
