@@ -1,7 +1,9 @@
 package com.kitahara.expensetracking.di.modules.sources
 
 import com.kitahara.expensetracking.domain.BalanceSource
+import com.kitahara.expensetracking.domain.MyPagingData
 import com.kitahara.expensetracking.domain.balance.BalanceSourceImpl
+import com.kitahara.expensetracking.domain.paging.MyPagingDataImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -11,5 +13,8 @@ import dagger.hilt.android.components.ViewModelComponent
 @InstallIn(ViewModelComponent::class)
 abstract class SourcesModule {
     @Binds
-    abstract fun bindBalanceSource(bs: BalanceSourceImpl): BalanceSource
+    abstract fun bindBalanceSource(impl: BalanceSourceImpl): BalanceSource
+
+    @Binds
+    abstract fun bindMyPagingData(impl: MyPagingDataImpl): MyPagingData
 }

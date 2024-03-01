@@ -2,11 +2,15 @@ package com.kitahara.expensetracking.presentation.home
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -14,11 +18,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.itemContentType
+import androidx.paging.compose.itemKey
 import com.kitahara.expensetracking.presentation.home.components.BitcoinAddingDialog
 import com.kitahara.expensetracking.presentation.home.components.BitcoinBalanceCard
+import com.kitahara.expensetracking.presentation.home.components.TransactionItem
 
 @Composable
 fun HomeScreen(
@@ -26,6 +35,8 @@ fun HomeScreen(
     navigateTransactionScreen: () -> Unit
 ) {
     val viewModel: HomeViewModel = hiltViewModel()
+
+    val transactionPagingItem = viewModel.getPagedTransactions().collectAsLazyPagingItems()
 
     val bitcoinCount by viewModel.provideBitcoinFlow().collectAsState(initial = 0f)
 
@@ -41,7 +52,8 @@ fun HomeScreen(
             Modifier
                 .fillMaxSize()
                 .padding(values),
-            verticalArrangement = Arrangement.Top
+            verticalArrangement = Arrangement.spacedBy(5.dp),
+            contentPadding = PaddingValues(7.dp)
         ) {
 
             item {
@@ -54,6 +66,42 @@ fun HomeScreen(
                 )
 
                 HorizontalDivider(Modifier.padding(15.dp))
+            }
+
+            item {
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp),
+                    text = "Transactions",
+
+                    style = MaterialTheme.typography.titleLarge
+                )
+            }
+
+            items(
+                count = transactionPagingItem.itemCount,
+                key = transactionPagingItem.itemKey {
+                    it.id
+                },
+                contentType = transactionPagingItem.itemContentType { "Transactions" }
+            ) { index ->
+                transactionPagingItem[index]?.let {
+                    TransactionItem(modifier = Modifier.fillMaxWidth(), transactions = it)
+                }
+            }
+
+            item {
+                if (transactionPagingItem.itemCount == 0) {
+                    Text(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 40.dp),
+                        text = "No transactions yet",
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
             }
         }
     }
@@ -72,8 +120,9 @@ fun HomeScreen(
         )
 }
 
+
 @Preview
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(modifier = Modifier, {})
+    HomeScreen(modifier = Modifier) {}
 }

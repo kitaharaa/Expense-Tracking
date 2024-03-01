@@ -63,7 +63,7 @@ fun BitcoinAddingDialog(
                         )
                     },
                     onValueChange = {
-                        if (it.length < 20) {
+                        if (it.length < 9) {
                             if (it.isEmpty()) {
                                 text = it
                             } else {

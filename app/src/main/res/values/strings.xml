@@ -6,4 +6,5 @@
     <string name="balance">Balance</string>
     <string name="add_bitcoin">Add bitcoin</string>
     <string name="add_transaction">Add transaction</string>
+    <string name="bitcoin_icon">Bitcoin icon</string>
 </resources>

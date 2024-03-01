@@ -83,6 +83,8 @@ dependencies {
     annotationProcessor(libs.androidx.room.compiler)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
+    implementation( libs.androidx.room.paging)
+    implementation (libs.androidx.paging.compose)
 
     implementation(libs.ktor.client.android)
     implementation(libs.ktor.client.serialization)
