@@ -1,5 +1,6 @@
 package com.kitahara.expensetracking.presentation.home
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -63,6 +64,7 @@ fun HomeScreen(
                 shouldShowDialog = false
             },
             onConfirm = {
+                Log.e("Confirmation", "$it")
                 viewModel.addBitcoin(it)
 
                 shouldShowDialog = false

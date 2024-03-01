@@ -98,7 +98,15 @@ fun BitcoinAddingDialog(
                         )
                     }
                     TextButton(
-                        onClick = { onConfirm(text.toFloat()) },
+                        onClick = {
+                            onConfirm(
+                                try {
+                                    text.toFloat()
+                                } catch (e: Exception) {
+                                    0f
+                                }
+                            )
+                        },
                         modifier = Modifier.padding(8.dp),
                     ) {
                         Text(

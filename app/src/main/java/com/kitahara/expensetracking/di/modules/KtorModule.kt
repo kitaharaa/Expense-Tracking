@@ -27,7 +27,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApplicationModule {
+class KtorModule {
     private val attempts = 3
     private val delay = 5L
     private val connectionTime = 30000L
