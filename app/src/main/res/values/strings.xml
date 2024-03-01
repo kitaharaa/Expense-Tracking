@@ -7,4 +7,8 @@
     <string name="add_bitcoin">Add bitcoin</string>
     <string name="add_transaction">Add transaction</string>
     <string name="bitcoin_icon">Bitcoin icon</string>
+    <string name="home">Home</string>
+    <string name="btc">BTC: $%1$s</string>
+    <string name="transactions">Transactions</string>
+    <string name="no_transactions_yet">No transactions yet</string>
 </resources>

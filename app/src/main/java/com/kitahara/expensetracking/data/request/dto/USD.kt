@@ -15,7 +15,7 @@ data class USD(
     @SerialName("rate")
     val rate: String? = null, // 61,921.831
     @SerialName("rate_float")
-    val rateFloat: Double? = null, // 61921.8307
+    val rateFloat: Float? = null, // 61921.8307
     @SerialName("symbol")
     val symbol: String? = null // &#36;
 )

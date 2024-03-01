@@ -34,8 +34,7 @@ fun BitcoinBalanceCard(
     Column(
         modifier = Modifier
             .padding(horizontal = 10.dp)
-            .fillMaxWidth()
-            .height(230.dp),
+            .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(
             14.dp,
