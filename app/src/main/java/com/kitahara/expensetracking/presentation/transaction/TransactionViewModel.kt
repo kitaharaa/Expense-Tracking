@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kitahara.expensetracking.domain.BitcoinOperationUseCase
 import com.kitahara.expensetracking.domain.sources.TransactionType
-import com.kitahara.expensetracking.presentation.transaction.transaction_categories.TransactionCategory
+import com.kitahara.expensetracking.common.transaction_categories.TransactionCategory
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

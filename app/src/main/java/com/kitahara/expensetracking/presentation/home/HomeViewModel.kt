@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.kitahara.expensetracking.common.transaction_categories.TransactionCategory
 import com.kitahara.expensetracking.domain.BitcoinOperationUseCase
 import com.kitahara.expensetracking.domain.entity.TransactionData
 import com.kitahara.expensetracking.domain.repo.BalanceSource
@@ -33,7 +34,7 @@ class HomeViewModel @Inject constructor(
             bitcoinOperationUseCase.createTransaction(
                 transactionType = TransactionType.Replenishment,
                 amount = it,
-                category = "replenishment",
+                category = TransactionCategory.Other.category,
                 showToast = showToast
             )
         }

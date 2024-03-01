@@ -35,7 +35,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.kitahara.expensetracking.R
 import com.kitahara.expensetracking.common.text_field.CustomTextField
 import com.kitahara.expensetracking.presentation.transaction.chip_row.CustomChipRow
-import com.kitahara.expensetracking.presentation.transaction.transaction_categories.TransactionCategory
+import com.kitahara.expensetracking.common.transaction_categories.TransactionCategory
 import kotlinx.coroutines.launch
 
 @Composable

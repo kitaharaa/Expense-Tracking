@@ -34,7 +34,7 @@ class MyPagingDataImpl @Inject constructor(
             }
 
     private fun TransactionEntity.convertToDomainModel(): TransactionData {
-        val parsedTime = SimpleDateFormat("dd MMMM,\n HH:mm", Locale.US).format(operationDate)
+        val parsedTime = SimpleDateFormat("dd MMMM,\nHH:mm", Locale.US).format(operationDate)
 
         return TransactionData(
             id = id,

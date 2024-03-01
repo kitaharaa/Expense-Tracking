@@ -1,4 +1,4 @@
-package com.kitahara.expensetracking.presentation.transaction.transaction_categories
+package com.kitahara.expensetracking.common.transaction_categories
 
 enum class TransactionCategory(val category: String) {
     Groceries("groceries"),

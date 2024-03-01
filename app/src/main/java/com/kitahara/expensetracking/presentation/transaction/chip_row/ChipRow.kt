@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kitahara.expensetracking.R
-import com.kitahara.expensetracking.presentation.transaction.transaction_categories.TransactionCategory
+import com.kitahara.expensetracking.common.transaction_categories.TransactionCategory
 
 @Composable
 fun CustomChipRow(

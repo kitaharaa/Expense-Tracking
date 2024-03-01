@@ -68,8 +68,7 @@ fun BitcoinBalanceCard(
 
                     Text(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 15.dp),
+                            .fillMaxWidth(),
                         text = "$bitcoinCount",
                         style = MaterialTheme.typography.titleMedium
                     )
