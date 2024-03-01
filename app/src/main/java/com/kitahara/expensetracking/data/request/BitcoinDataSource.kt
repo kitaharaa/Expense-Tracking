@@ -13,6 +13,7 @@ class BitcoinDataSource @Inject constructor(
     private val httpClient: HttpClient
 ) {
 
+    //fetching bitcoin info
     suspend fun getBitcoinInfo(): BitcoinInfoDto? =
         try {
             httpClient.get {

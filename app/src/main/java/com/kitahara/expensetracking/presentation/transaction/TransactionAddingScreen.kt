@@ -38,6 +38,9 @@ import com.kitahara.expensetracking.presentation.transaction.chip_row.CustomChip
 import com.kitahara.expensetracking.common.transaction_categories.TransactionCategory
 import kotlinx.coroutines.launch
 
+/*
+* Screen for adding expense
+*/
 @Composable
 fun TransactionAddingScreen(
     modifier: Modifier = Modifier,

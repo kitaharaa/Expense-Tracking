@@ -45,6 +45,8 @@ class KtorModule {
             }
         }
 
+
+        //for serialization/deserialization
         install(ContentNegotiation) {
             json()
         }
@@ -54,6 +56,7 @@ class KtorModule {
             requestTimeoutMillis = connectionTime
         }
 
+        //handle random exceptions and repeat request
         install(HttpRequestRetry) {
             maxRetries = attempts
             retryOnException(attempts)

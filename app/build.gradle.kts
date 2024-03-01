@@ -86,12 +86,13 @@ dependencies {
     implementation( libs.androidx.room.paging)
     implementation (libs.androidx.paging.compose)
 
+    //ktor
     implementation(libs.ktor.client.android)
     implementation(libs.ktor.client.serialization)
     implementation(libs.ktor.client.logging.jvm)
 
+    //For json parsing
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
-
     implementation(libs.kotlinx.serialization.json)
 }

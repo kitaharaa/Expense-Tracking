@@ -24,6 +24,9 @@ import androidx.compose.ui.window.Dialog
 import com.kitahara.expensetracking.R
 import com.kitahara.expensetracking.common.text_field.CustomTextField
 
+/*
+* Dialog for bitcoin input (Float)
+*/
 @Composable
 fun BitcoinAddingDialog(
     onDismiss: () -> Unit,

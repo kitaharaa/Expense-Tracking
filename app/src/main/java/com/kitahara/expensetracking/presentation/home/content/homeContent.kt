@@ -18,6 +18,9 @@ import com.kitahara.expensetracking.domain.entity.TransactionData
 import com.kitahara.expensetracking.presentation.home.components.BitcoinBalanceCard
 import com.kitahara.expensetracking.presentation.home.components.TransactionItem
 
+/*
+* LazyColumn content
+*/
 fun LazyListScope.homeContent(
     bitcoinAmount: Float,
     transactionPagingItem: LazyPagingItems<TransactionData>,

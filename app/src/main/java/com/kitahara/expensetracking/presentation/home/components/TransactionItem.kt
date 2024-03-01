@@ -31,6 +31,9 @@ import com.kitahara.expensetracking.domain.entity.TransactionData
 import com.kitahara.expensetracking.presentation.ui.theme.Income
 import com.kitahara.expensetracking.presentation.ui.theme.Spending
 
+/*
+* Item of list from HomeScreen.kt
+*/
 @Composable
 fun TransactionItem(modifier: Modifier = Modifier, transactions: TransactionData) {
     Card(

@@ -113,6 +113,8 @@ fun HomeScreen(
             },
         )
 
+
+    //for handling is it time to update bitcoin rate
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_START) {

@@ -1,6 +1,5 @@
 package com.kitahara.expensetracking.data.request.dto
 
-
 import androidx.annotation.Keep
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

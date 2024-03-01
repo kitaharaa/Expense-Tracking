@@ -17,6 +17,7 @@ class BitcoinRateSourceImpl @Inject constructor(
     private val bitcoinDataSource: BitcoinDataSource
 ) : BitcoinRateSource {
 
+    //Updating usd bitcoin rate
     override suspend fun updateBitcoinRate() {
         try {
             val hours = getLastUpdateTimeInHours(rateDao.getLastUpdateTime())
@@ -51,6 +52,7 @@ class BitcoinRateSourceImpl @Inject constructor(
         ).parse(this)
     }
 
+    //function for extracting hour amount from last bitcoin update
     private fun getLastUpdateTimeInHours(date: Date?): Long {
         if (date == null) return 1
 

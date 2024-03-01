@@ -33,6 +33,7 @@ class MyPagingDataImpl @Inject constructor(
                 }
             }
 
+    //converting time to composable suitable format
     private fun TransactionEntity.convertToDomainModel(): TransactionData {
         val parsedTime = SimpleDateFormat("dd MMMM,\nHH:mm", Locale.US).format(operationDate)
 

@@ -25,6 +25,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kitahara.expensetracking.R
 
+/*
+* Card with bitcoin balance + button which triggers dialog
+*/
 @Composable
 fun BitcoinBalanceCard(
     bitcoinCount: Float,

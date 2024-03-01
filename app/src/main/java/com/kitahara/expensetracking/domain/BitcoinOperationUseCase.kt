@@ -5,6 +5,7 @@ import com.kitahara.expensetracking.domain.repo.TransactionSource
 import com.kitahara.expensetracking.domain.sources.TransactionType
 import javax.inject.Inject
 
+//Use case for handling transaction saving. It can be replenishment/expense
 class BitcoinOperationUseCase @Inject constructor(
     private val balanceSource: BalanceSource,
     private val transactionSource: TransactionSource
@@ -19,17 +20,18 @@ class BitcoinOperationUseCase @Inject constructor(
     ) {
         try {
             val bitcoinBalance = balanceSource.getBitcoinBalanceAmount()
-            var parsedAmount = makeAmountValid(amount)
+            var parsedAmount =
+                makeAmountValid(amount) //check if state of TextField is possible to convert in float
 
-            if (transactionType == TransactionType.Expense)
+            if (transactionType == TransactionType.Expense) //here we determine whether to add float or subtract it
                 parsedAmount *= -1
 
-            if (bitcoinBalance + parsedAmount < 0)
+            if (bitcoinBalance + parsedAmount < 0) //if possible to make operation with available bitcoin amount
                 throw Exception("Not enough money")
 
-            transactionSource.saveTransaction(category, parsedAmount)
+            transactionSource.saveTransaction(category, parsedAmount) //save transaction
 
-            balanceSource.addCost(parsedAmount)
+            balanceSource.addCost(parsedAmount) //update balance
 
             onComplete?.invoke()
         } catch (e: Exception) {
