@@ -1,4 +1,4 @@
-package com.kitahara.expensetracking.ui.theme
+package com.kitahara.expensetracking.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -64,7 +64,6 @@ fun ExpenseTrackingTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
         content = content
     )
 }
