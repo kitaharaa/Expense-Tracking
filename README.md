@@ -1,1 +1,1 @@
-# Just a test task for a company
+It is just a test task for the company
